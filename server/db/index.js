@@ -2,9 +2,9 @@
 // with your models, for which you'll find some blank files in this directory:
 
 const db = require('./database');
-const Pizza = require('./pizza');
-const User = require('./user');
-const Order = require('./order');
+const Pizza = require('./models/pizza');
+const User = require('./models/user');
+const Order = require('./models/order');
 
 // This is a great place to establish associations between your models
 // (https://sequelize-guides.netlify.com/association-types/).

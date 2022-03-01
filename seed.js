@@ -7,21 +7,21 @@ const fakePizzas = [
     description: 'tomato and mozzarella!',
     price: 7.99,
     imageUrl:
-      'https://cdn.loveandlemons.com/wp-content/uploads/2019/09/margherita-pizza-500x500.jpg',
+      'https://pbs.twimg.com/profile_banners/628621903/1478015350/600x200',
   },
   {
     name: 'capricciosa',
     description: 'ham, cheese, and mushrooms',
     price: 12.99,
     imageUrl:
-      'https://cdn.tasteatlas.com/images/dishes/6b28b438a3b64a7e9fca9081c89f07ff.jpg',
+      'https://pbs.twimg.com/profile_banners/628621903/1478015350/600x200',
   },
   {
     name: 'three cheese',
     description: 'uh...chese? This is per slice by the way',
     price: 17.99,
     imageUrl:
-      'https://veenaazmanov.com/wp-content/uploads/2020/06/3-cheese-pizza-with-no-knead-pizza-dough3.jpg',
+      'https://pbs.twimg.com/profile_banners/628621903/1478015350/600x200',
   },
 ];
 

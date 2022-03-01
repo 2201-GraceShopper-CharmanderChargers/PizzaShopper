@@ -23,10 +23,10 @@ const Pizza = db.define('pizza', {
     },
   },
 
-  ImageUrl: {
-    type: Sequelize.STRING,
+  imageUrl: {
+    type: Sequelize.TEXT,
     defaultValue:
-      'https://visittallahassee.com/wp-content/uploads/2020/06/bf5b495d-1e36-47f6-9833-333f42d91cb7.jpg',
+      'https://pbs.twimg.com/profile_banners/628621903/1478015350/600x200',
   },
 });
 

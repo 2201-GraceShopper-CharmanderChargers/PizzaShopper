@@ -12,6 +12,12 @@ const Order = require('./models/order');
 //
 // Puppy.belongsTo(Owner)
 
+User.hasMany(Order);
+Order.belongsTo(User);
+
+Pizza.belongsToMany(Order, { through: 'pizzaOrders' });
+Order.belongsToMany(Pizza, { through: 'pizzaOrders' });
+
 module.exports = {
   // Include your models in this exports object as well!
   db,

@@ -1,21 +1,55 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { fetchPizzas } from '../redux/pizzas';
 
 // Notice that we're exporting the AllPizzas component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
 // bottom) is connected to Redux. Our tests should cover _both_ cases.
+
 export class AllPizzas extends React.Component {
+  // constructor(props){
+  //   super(props)
+
+  // }
+
+
+  componentDidMount() {
+    this.props.fetchPizzas();
+  }
+  componentDidUpdate(prevprops) {
+    if (prevprops.pizzas !== this.props.pizzas) {
+      console.log('we updated the component')
+    }
+  }
   render() {
-    return <div />;
+    const pizzas = this.props.pizzas;
+    return (
+      <div className="allpizzas">
+        {pizzas.map((pizza) => {
+          return (
+            <div key={pizza.id}>
+              <h3>Name: {pizza.name}</h3>
+              <h3>Description: {pizza.description || ''}</h3>
+              <h3>Price: {pizza.price}</h3>
+              <img src={pizza.imageUrl} alt={pizza.name} />
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 }
 
-const mapState = () => {
-  return {};
+const mapState = (state) => {
+  return {
+    pizzas: state.pizzas,
+  };
 };
 
-const mapDispatch = () => {
-  return {};
+const mapDispatch = (dispatch) => {
+  return {
+    fetchPizzas: () => dispatch(fetchPizzas()),
+  };
 };
 
 export default connect(mapState, mapDispatch)(AllPizzas);

@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// Notice that we're exporting the AllProjects component twice. The named export
+// Notice that we're exporting the AllPizzas component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
 // bottom) is connected to Redux. Our tests should cover _both_ cases.
-export class AllProjects extends React.Component {
+export class AllPizzas extends React.Component {
   render() {
     return <div />;
   }
@@ -18,4 +18,4 @@ const mapDispatch = () => {
   return {};
 };
 
-export default connect(mapState, mapDispatch)(AllProjects);
+export default connect(mapState, mapDispatch)(AllPizzas);

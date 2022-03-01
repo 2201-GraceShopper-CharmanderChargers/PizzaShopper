@@ -1,12 +1,11 @@
 const { green, red } = require('chalk');
-const { db, Project, Robot } = require('./server/db');
+const { db, Pizza, User, Order } = require('./server/db');
 
 const seed = async () => {
   try {
     await db.sync({ force: true });
 
     // seed your database here!
-
   } catch (err) {
     console.log(red(err));
   }

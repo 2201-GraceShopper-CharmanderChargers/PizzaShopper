@@ -31,3 +31,13 @@ main {
   flex-direction: column;
   justify-content: center;
 }
+
+.allpizzas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.allpizzas > * {
+  padding: 10px;
+}

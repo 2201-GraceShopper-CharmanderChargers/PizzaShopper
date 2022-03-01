@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import AllPizzas from './AllPizzas';
 
 const Routes = () => {
   return (
@@ -8,6 +9,9 @@ const Routes = () => {
         <nav>Welcome!</nav>
         <main>
           <h1>Your pizzas are awaiting assignments!</h1>
+          <Switch>
+            <Route exact path="/" component={AllPizzas} />
+          </Switch>
           <p>This seems like a nice place to get started with some Routes!</p>
         </main>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 const PizzaCard = (props) => {
   const { pizza } = props;
@@ -17,7 +18,7 @@ const PizzaCard = (props) => {
           <Card.Title>{pizza.name}</Card.Title>
           <Card.Text>{pizza.description}</Card.Text>
           <Card.Text>{pizza.price}</Card.Text>
-          {/* <Button variant="primary">Go somewhere</Button> */}
+          <Button variant="danger">Add to Cart</Button>
         </Card.Body>
       </Card>
     </div>

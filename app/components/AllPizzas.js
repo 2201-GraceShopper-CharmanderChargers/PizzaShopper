@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPizzas } from '../redux/pizzas';
 import PizzaCard from './PizzaCard';
+import CarouselSlide from './Carousel';
 
 // Notice that we're exporting the AllPizzas component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
@@ -28,10 +29,15 @@ export class AllPizzas extends React.Component {
     return this.loading ? (
       <img src="https://fullstackacademy.slack.com/files/U02CSK206LS/F034UU5EYAJ/image.png" />
     ) : (
-      <div className="allpizzas">
-        {pizzas.map((pizza) => {
-          return <PizzaCard key={pizza.id} pizza={pizza} />;
-        })}
+      <div>
+        <div className="carousel">
+          <CarouselSlide pizzas={pizzas} />
+        </div>
+        <div className="allpizzas">
+          {pizzas.map((pizza) => {
+            return <PizzaCard key={pizza.id} pizza={pizza} />;
+          })}
+        </div>
       </div>
     );
   }

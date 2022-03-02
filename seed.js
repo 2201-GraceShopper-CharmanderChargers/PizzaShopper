@@ -1,27 +1,73 @@
+
+
 const { green, red } = require('chalk');
 const { db, Pizza, User, Order } = require('./server/db');
 
 const fakePizzas = [
   {
-    name: 'margharita',
-    description: 'tomato and mozzarella!',
-    price: 7.99,
+    name: 'Margharita',
+    description:
+      'Plum tomato sauce with a blend of Fresh Mozzarella, Peccorino Romano, Reggiano Parmigiano and basil.',
+    price: 999.99,
     imageUrl:
-      'https://pbs.twimg.com/profile_banners/628621903/1478015350/600x200',
+      'https://pbs.twimg.com/media/Dwecl7tVsAUcmX4?format=jpg&name=medium',
   },
   {
-    name: 'capricciosa',
-    description: 'ham, cheese, and mushrooms',
+    name: 'Artichoke',
+    description:
+      'Spinach cream sauce with artichoke hearts and a blend of cheeses.',
     price: 12.99,
     imageUrl:
-      'https://pbs.twimg.com/profile_banners/628621903/1478015350/600x200',
+      'https://pbs.twimg.com/media/EVQJm7sX0AAb6Y8?format=jpg&name=medium',
   },
   {
-    name: 'three cheese',
-    description: 'uh...chese? This is per slice by the way',
+    name: 'Detriot Pepperoni',
+    description:
+      'Detroit square pizza with a caramelized cheddar cheese crust, zesty tomato sauce and thick cut pepperoni cups.',
     price: 17.99,
     imageUrl:
-      'https://pbs.twimg.com/profile_banners/628621903/1478015350/600x200',
+      'https://pbs.twimg.com/media/D3pJeD3WAAAgjaI?format=jpg&name=small',
+  },
+
+  {
+    name: 'Scilian',
+    description:
+      'Plum tomato sauce with a blend of cheeses, fresh basil, and olive oil on a twice baked crust.',
+    price: 17.99,
+    imageUrl:
+      'https://pbs.twimg.com/media/DuzMghQV4AAmzcI?format=jpg&name=medium',
+  },
+  {
+    name: 'Grandmas Special',
+    description:
+      "San Marzano tomatoes, fresh mozzarella, fresh jalapenos, spicy soppressata salami, Mike's Hot Honey, Parmigiano Reggiano D.O.P, and extra virgin olive oil.",
+    price: 17.99,
+    imageUrl:
+      'https://pbs.twimg.com/media/Ci0nmDLWkAAnCCN?format=jpg&name=900x900',
+  },
+  {
+    name: 'Staten Island',
+    description:
+      'San Marzano Tomato Sauce, Mozzarella di Bufala, Mushroom, spicy soppressata salami, Fresh Basil, Extra Virgin Olive Oil',
+    price: 17.99,
+    imageUrl:
+      '	https://pbs.twimg.com/media/E-e5UGXUUAsR3qm?format=jpg&name=large',
+  },
+  {
+    name: 'Brooklyn',
+    description:
+      'Plum tomato sauce, fresh mozzarella, spicy soppressata salami, Parmigiano Reggiano D.O.P, and extra virgin olive oil.',
+    price: 17.99,
+    imageUrl:
+      'https://pbs.twimg.com/media/CqAAjxDWYAACxyN?format=jpg&name=medium',
+  },
+  {
+    name: 'Caprocciosa or Caproccisoa',
+    description:
+      'San Marzano Tomato Sauce, Mozzarella di Bufala, Mushroom, Gaeta Olive,Rovagnati Granbiscotto Ham, Artichoke Hearts, Fresh Basil, Extra Virgin Olive Oil',
+    price: 17.99,
+    imageUrl:
+      'https://pbs.twimg.com/media/FMs4PT6X0AQldd2?format=jpg&name=4096x4096',
   },
 ];
 
@@ -79,3 +125,5 @@ if (require.main === module) {
       db.close();
     });
 }
+
+

@@ -1,5 +1,6 @@
 const ADD_CART = 'ADD_CART';
 const UPDATE_CART = 'UPDATE_CART';
+const DELETE_PIZZA = 'DELETE_PIZZA';
 
 export const addCart = (pizza) => {
   return {
@@ -15,7 +16,14 @@ export const updateCart = (pizza) => {
   };
 };
 
-/* When we add a pizza to the cart from the single pizza view, we added a quantity property. We want the cart to group pizzas of the same type. If the pizza type is already in the cart, just update the quantity.
+export const deletePizza = (id) => {
+  return {
+    type: DELETE_PIZZA,
+    id,
+  };
+};
+
+/* When we add a pizza to the cart from the single pizza view, we add a quantity property to the object. We want the cart to group pizzas of the same type. If the pizza type is already in the cart, just update the quantity.
 Ex: [{id: 1, name: margarita, ..., quantity: 1}]
 */
 export default function cartReducer(state = [], action) {
@@ -43,6 +51,12 @@ export default function cartReducer(state = [], action) {
         } else {
           return pizza;
         }
+      });
+      return newPizzas;
+    }
+    case DELETE_PIZZA: {
+      const newPizzas = state.filter((pizza) => {
+        return pizza.id !== action.id;
       });
       return newPizzas;
     }

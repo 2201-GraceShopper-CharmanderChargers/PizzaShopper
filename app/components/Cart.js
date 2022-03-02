@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Table from 'react-bootstrap/Table';
-import { updateCart } from '../redux/cart';
+import { updateCart, deletePizza } from '../redux/cart';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class Cart extends React.Component {
       cart: this.props.cart,
     };
     this.changeQuantity = this.changeQuantity.bind(this);
+    this.deletePizza = this.deletePizza.bind(this);
   }
 
   changeQuantity(event) {
@@ -20,6 +21,10 @@ class Cart extends React.Component {
     })[0];
     targetPizza.quantity = event.target.value;
     this.props.updateCart(targetPizza);
+  }
+
+  deletePizza(id) {
+    this.props.deletePizza(id);
   }
 
   componentDidMount() {
@@ -36,6 +41,8 @@ class Cart extends React.Component {
   }
 
   render() {
+    const pizzas = this.state.cart.length > 0 ? this.state.cart : [];
+    console.log(pizzas);
     return this.loading ? (
       <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" />
     ) : (
@@ -47,35 +54,42 @@ class Cart extends React.Component {
               <th>Item</th>
               <th>Quantity</th>
               <th>Price</th>
+              <th />
             </tr>
           </thead>
           <tbody>
-            {this.props.cart.map((pizza) => {
-              return (
-                <tr key={pizza.id}>
-                  <td>{pizza.name}</td>
-                  <td>
-                    <input
-                      type="number"
-                      name={pizza.id}
-                      value={pizza.quantity}
-                      min="1"
-                      onChange={this.changeQuantity}
-                    />
-                  </td>
-                  <td>{pizza.quantity * pizza.price}</td>
-                </tr>
-              );
-            })}
+            {pizzas.length > 0
+              ? pizzas.map((pizza) => {
+                  return (
+                    <tr key={pizza.id}>
+                      <td>{pizza.name}</td>
+                      <td>
+                        <input
+                          type="number"
+                          name={pizza.id}
+                          className="cart-item-quantity"
+                          value={pizza.quantity}
+                          min="1"
+                          onChange={this.changeQuantity}
+                        />
+                      </td>
+                      <td>{pizza.quantity * pizza.price}</td>
+                      <td onClick={() => this.deletePizza(pizza.id)}>delete</td>
+                    </tr>
+                  );
+                })
+              : ''}
           </tbody>
         </Table>
         <div id="subtotal">
           <p>Subtotal: </p>
           <p>
             $
-            {this.props.cart.reduce((prev, pizza) => {
-              return prev + pizza.quantity * pizza.price;
-            }, 0)}
+            {pizzas.length > 0
+              ? pizzas.reduce((prev, pizza) => {
+                  return prev + pizza.quantity * pizza.price;
+                }, 0)
+              : 0}
           </p>
         </div>
       </div>
@@ -92,6 +106,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateCart: (pizza) => dispatch(updateCart(pizza)),
+    deletePizza: (id) => dispatch(deletePizza(id)),
   };
 };
 

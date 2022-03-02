@@ -64,6 +64,10 @@ main {
   font-family: monospace;
 }
 
+.cart-item-quantity {
+  max-width: 5ch;
+}
+
 #subtotal {
   display: flex;
   flex-direction: row;

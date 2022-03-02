@@ -13,7 +13,6 @@ export class AllPizzas extends React.Component {
     super(props);
 
     this.loading = true;
-  
   }
 
   componentDidMount() {
@@ -24,7 +23,6 @@ export class AllPizzas extends React.Component {
     if (prevprops.pizzas !== this.props.pizzas) {
       console.log('we updated the component');
     }
-   
   }
   render() {
     const pizzas = this.props.pizzas;

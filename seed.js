@@ -66,8 +66,8 @@ const fakePizzas = [
     description:
       'San Marzano Tomato Sauce, Mozzarella di Bufala, Mushroom, Gaeta Olive,Rovagnati Granbiscotto Ham, Artichoke Hearts, Fresh Basil, Extra Virgin Olive Oil',
     price: 17.99,
-    imageUrl:
-      'https://pbs.twimg.com/media/FMs4PT6X0AQldd2?format=jpg&name=4096x4096',
+    imageUrl: 'https://pbs.twimg.com/media/FMvAzoQXEAA0SIV?format=jpg&name=small'
+     
   },
 ];
 

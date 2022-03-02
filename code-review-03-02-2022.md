@@ -48,3 +48,43 @@
   ```
 
 - You might look into documenting the shape of your redux store
+
+## Auth Flow
+
+### Login flow
+
+1. Type in user name and password into form;
+2. submit;
+3. /login route on the api;
+4. Validate username and password
+5. check the password by using bcrypt.compare
+6. if it's valid generate a JWT and the user info.
+7. In the frontend, store the JWT and user info in localStorage and Redux.
+
+### Sign up Flow
+
+1. Type in user name and password into form.
+2. submit
+3. /signup route on the API
+4. validate the signup form
+5. create a new user in the database
+6. generate a JWT and the user info 
+7. in the frontend, store it in localStorage
+
+### Returning user flow
+
+1. get the token from localStorage.
+2. axios call the /me route automatically and pass the token to it.
+3. verify the token
+4. if valid, return the user info
+5. In the frontend we store the user info in Redux.
+
+### Logout
+
+1. press the logout button
+2. clear the token from localstorage, and clear the user info in redux.
+
+## Authenticating API calls
+
+If the user is accessing something that requires login, then pass the token
+   to the backend on every axios call. if that fails, the user doesn't have permission, or is not logged in.

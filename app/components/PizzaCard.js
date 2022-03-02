@@ -13,7 +13,9 @@ const PizzaCard = (props) => {
     // </div>
     <div>
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={pizza.imageUrl} />
+        <a href={`/${pizza.id}`}>
+          <Card.Img variant="top" src={pizza.imageUrl} />
+        </a>
         <Card.Body>
           <Card.Title>{pizza.name}</Card.Title>
           <Card.Text>{pizza.description}</Card.Text>

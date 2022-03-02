@@ -30,6 +30,10 @@ class SinglePizza extends React.Component {
     event.preventDefault();
     this.props.addCart(this.state);
     this.inCart = true;
+    this.setState({
+      ...this.props.pizza,
+      quantity: 1,
+    });
   }
 
   componentDidMount() {
@@ -49,12 +53,8 @@ class SinglePizza extends React.Component {
   render() {
     const pizza = this.props.pizza;
     return this.loading ? (
-      this.inCart ? (
-        <Cart />
-      ) : (
-        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" />
-      )
-    ) : (
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" />
+    ) : !this.inCart ? (
       <form className="single-pizza" onSubmit={this.handleSubmit}>
         <img src={pizza.imageUrl} />
         <h1>{pizza.name}</h1>
@@ -75,6 +75,8 @@ class SinglePizza extends React.Component {
           <input type="submit" value="Add to Cart" />
         </div>
       </form>
+    ) : (
+      <Cart />
     );
   }
 }

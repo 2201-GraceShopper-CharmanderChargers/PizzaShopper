@@ -68,6 +68,15 @@ main {
   font-family: monospace;
 }
 
+.cart-item-quantity {
+  max-width: 5ch;
+}
+
+#subtotal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
 .navLink {
   padding: 0 25px 0 !important;
   font-size: 20px;

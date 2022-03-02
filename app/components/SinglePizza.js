@@ -1,8 +1,9 @@
 import React from 'react';
-import { fetchPizza } from '../redux/singlePizza';
 import { connect } from 'react-redux';
+import { fetchPizza } from '../redux/singlePizza';
+import { addCart } from '../redux/cart';
+import Cart from './Cart';
 import { Link } from 'react-router-dom'
-
 
 class SinglePizza extends React.Component {
   constructor(props) {
@@ -11,12 +12,28 @@ class SinglePizza extends React.Component {
       quantity: 1,
     };
     this.loading = true;
+    this.inCart = false;
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
+    if (event.target.name === 'quantity') {
+      this.setState({ quantity: Number(event.target.value) });
+    } else {
+      this.setState({
+        [event.target.name]: event.target.value,
+      });
+    }
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.addCart(this.state);
+    this.inCart = true;
     this.setState({
-      [event.target.name]: event.target.value,
+      ...this.props.pizza,
+      quantity: 1,
     });
   }
 
@@ -25,9 +42,21 @@ class SinglePizza extends React.Component {
     this.props.fetchPizza(this.props.match.params.id);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.pizza !== this.props.pizza) {
+      this.setState({
+        ...this.props.pizza,
+        quantity: 1,
+      });
+    }
+  }
+
   render() {
     const pizza = this.props.pizza;
     return this.loading ? (
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" />
+    ) : !this.inCart ? (
+      <form className="single-pizza" onSubmit={this.handleSubmit}>
       <div className = "container">
         <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" />
         <h1>Charmander Probably ate the Pizza you were looking for</h1>
@@ -53,6 +82,8 @@ class SinglePizza extends React.Component {
           <input type="submit" value="Add to Cart" />
         </div>
       </form>
+    ) : (
+      <Cart />
     );
   }
 }
@@ -66,6 +97,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchPizza: (id) => dispatch(fetchPizza(id)),
+    addCart: (pizza) => dispatch(addCart(pizza)),
   };
 };
 

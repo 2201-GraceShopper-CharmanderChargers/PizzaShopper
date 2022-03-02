@@ -27,7 +27,7 @@ const Routes = () => {
           </Container>
         </Navbar>
         <main>
-          <h1>Pizzas For Sale</h1>
+          {/* <h1>Pizzas For Sale</h1> */}
           <Switch>
             <Route exact path="/" component={AllPizzas} />
             <Route exact path="/login" component={LoginForm} />

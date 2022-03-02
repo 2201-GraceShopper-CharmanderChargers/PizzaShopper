@@ -6,6 +6,7 @@
 * {
   box-sizing: border-box;
   font-family: arial, sans-serif;
+ 
 }
 
 body {
@@ -14,6 +15,7 @@ body {
   padding: 0;
   margin: 0;
   width: 100vw;
+  
 }
 
 nav {
@@ -30,6 +32,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
 
 
@@ -75,4 +78,46 @@ main {
 
   font-size: 50px !important;
   font-family: monospace
+
+.view {
+  
+   background-image: url('https://pbs.twimg.com/media/DmFbEO7W0AIci5f?format=jpg&name=large')
+  
+}
+.carouselslide {
+ 
+  width:200px;
+  height:600px;
+  margin: auto;
+  
+}
+/* .carosuelImage {
+  background-color: black;
+} */
+      
+.carosuelImage > img {
+   margin: 10px;
+  width: 50%;
+  margin-left: 25%;
+  border-radius: 55px 55px 55px 55px;
+  box-shadow: 10px 10px 5px;
+   border:2px
+   
+   /* opacity: 0.9; */
+}
+
+.carouselcontent {
+  right: 0;
+    text-align: right;
+    margin-left: 750px;
+    margin-bottom: 200px;  
+}
+.carouselcontent > h3 {
+  color: red;
+  font-family: 'Lucida Sans';
+  padding-bottom: 10%;
+}
+.carouselcontent > p {
+  color: green;
+  padding-top: 20%;
 }

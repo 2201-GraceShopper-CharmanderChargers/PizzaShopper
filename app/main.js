@@ -8,8 +8,10 @@ import store from './store';
 import Routes from './components/Routes';
 
 render(
-  <Provider store={store}>
-    <Routes />
-  </Provider>,
+  <div className="view">
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+  </div>,
   document.getElementById('main')
 );

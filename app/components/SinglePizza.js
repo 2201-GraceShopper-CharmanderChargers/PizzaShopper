@@ -1,6 +1,8 @@
 import React from 'react';
 import { fetchPizza } from '../redux/singlePizza';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
+
 
 class SinglePizza extends React.Component {
   constructor(props) {
@@ -26,7 +28,10 @@ class SinglePizza extends React.Component {
   render() {
     const pizza = this.props.pizza;
     return this.loading ? (
-      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" />
+      <div className = "container">
+        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" />
+        <h1>Charmander Probably ate the Pizza you were looking for</h1>
+      </div>
     ) : (
       <form className="single-pizza">
         <img src={pizza.imageUrl} />
@@ -42,9 +47,9 @@ class SinglePizza extends React.Component {
           onChange={this.handleChange}
         />
         <div className="nav-buttons">
-          <a href="/">
+          <Link to="/">
             <button type="button">Back</button>
-          </a>
+          </Link>
           <input type="submit" value="Add to Cart" />
         </div>
       </form>

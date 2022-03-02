@@ -1,7 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import AllPizzas from './AllPizzas';
 import SinglePizza from './SinglePizza';
+import LoginForm from './LoginForm'
+import SignUpForm from './SignUpForm'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -16,7 +20,8 @@ const Routes = () => {
           <Container>
             <Navbar.Brand href="/">Menu</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/">Login</Nav.Link>
+              <Nav.Link href="/login">Log In</Nav.Link>
+              <Nav.Link href="/signup">Sign up</Nav.Link>
               <Nav.Link href="/">Cart</Nav.Link>
             </Nav>
           </Container>
@@ -25,6 +30,8 @@ const Routes = () => {
           <h1>Pizzas For Sale</h1>
           <Switch>
             <Route exact path="/" component={AllPizzas} />
+            <Route exact path="/login" component={LoginForm} />
+            <Route exact path="/signup" component={SignUpForm} />
             <Route exact path="/:id" component={SinglePizza} />
           </Switch>
         </main>

@@ -2,6 +2,9 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
+import { Link } from 'react-router-dom'
+
+
 const PizzaCard = (props) => {
   const { pizza } = props;
   return (
@@ -13,9 +16,9 @@ const PizzaCard = (props) => {
     // </div>
     <div>
       <Card style={{ width: '18rem' }}>
-        <a href={`/${pizza.id}`}>
+        <Link to={`/${pizza.id}`}>
           <Card.Img variant="top" src={pizza.imageUrl} />
-        </a>
+        </Link>
         <Card.Body>
           <Card.Title>{pizza.name}</Card.Title>
           <Card.Text>{pizza.description}</Card.Text>

@@ -16,13 +16,13 @@ const Routes = () => {
     <Router>
       <div>
         {/* <nav>That's Amore!</nav> */}
-        <Navbar bg="success" variant="light">
+        <Navbar bg="success" variant="dark">
           <Container>
-            <Navbar.Brand href="/">Menu</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="/login">Log In</Nav.Link>
-              <Nav.Link href="/signup">Sign up</Nav.Link>
-              <Nav.Link href="/">Cart</Nav.Link>
+            <Navbar.Brand className = "navLinkHeader" href="/">Thats Amore</Navbar.Brand>
+            <Nav fill variant="tabs" defaultActiveKey="/home">
+              <Nav.Link className = "navLink" href="/login">Log In</Nav.Link>
+              <Nav.Link className = "navLink" href="/signup">Sign up</Nav.Link>
+              <Nav.Link className = "navLink" href="/">Cart</Nav.Link>
             </Nav>
           </Container>
         </Navbar>

@@ -32,6 +32,7 @@ main {
   justify-content: center;
 }
 
+
 .allpizzas {
   display: flex;
   flex-direction: row;
@@ -62,4 +63,16 @@ main {
 .nav-buttons > * {
   padding: 0 10px 0;
   font-family: monospace;
+}
+
+.navLink {
+  padding: 0 25px 0 !important;
+  font-size: 20px;
+  font-family: monospace
+}
+
+.navLinkHeader {
+
+  font-size: 50px !important;
+  font-family: monospace
 }

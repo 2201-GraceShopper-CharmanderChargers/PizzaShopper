@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AllPizzas from './AllPizzas';
+import SinglePizza from './SinglePizza';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -24,6 +25,7 @@ const Routes = () => {
           <h1>Pizzas For Sale</h1>
           <Switch>
             <Route exact path="/" component={AllPizzas} />
+            <Route exact path="/:id" component={SinglePizza} />
           </Switch>
         </main>
       </div>

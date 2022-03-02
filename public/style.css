@@ -41,3 +41,25 @@ main {
 .allpizzas > * {
   padding: 10px;
 }
+
+.single-pizza {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-pizza > * {
+  font-family: monospace;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.nav-buttons > * {
+  padding: 0 10px 0;
+  font-family: monospace;
+}

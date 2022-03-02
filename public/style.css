@@ -63,3 +63,9 @@ main {
   padding: 0 10px 0;
   font-family: monospace;
 }
+
+#subtotal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

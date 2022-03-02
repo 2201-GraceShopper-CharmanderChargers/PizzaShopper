@@ -1,8 +1,16 @@
 const ADD_CART = 'ADD_CART';
+const UPDATE_CART = 'UPDATE_CART';
 
 export const addCart = (pizza) => {
   return {
     type: ADD_CART,
+    pizza,
+  };
+};
+
+export const updateCart = (pizza) => {
+  return {
+    type: UPDATE_CART,
     pizza,
   };
 };
@@ -27,6 +35,16 @@ export default function cartReducer(state = [], action) {
       } else {
         return [...state, action.pizza];
       }
+    }
+    case UPDATE_CART: {
+      const newPizzas = state.map((pizza) => {
+        if (pizza.id === action.pizza.id) {
+          return action.pizza;
+        } else {
+          return pizza;
+        }
+      });
+      return newPizzas;
     }
     default:
       return state;
